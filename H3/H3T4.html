@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 3.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+    <!--linkki päiväkirjaan-->
+    <h3><a href="https://ukko1998.github.io/N2914Fullstack/">Takaisin</a></h3>
+    <br />
+    <br />
+  </head>
+
+  <body>
+    <h2>SimpleToDo</h2>
+    <form id="f">
+      ToDo:<br />
+      <input type="text" id="syöte" />
+      <br />
+      <br />
+      <button type="button" onclick="lisääNappi()">Lisää</button>
+      <button type="button" onclick="tyhjääNappi()">Tyhjää lista</button>
+    </form>
+
+    <ul id="lista"></ul>
+
+    <script>
+      let ulNode = document.querySelector('ul'); //ulNoden sijainti
+
+      function lisääNappi() {
+        let teksti = f.syöte.value; //haetaan teksti muuttujaan formin inputin (tekstikenttä) sisältö (value) joka on merkkijono
+        ulNode.innerHTML += `<li>${teksti}</li>`; //tässä vaiheessa vähän oijoin, kun en li nodeja lisännyt koodilla kuten H3T2 tehtävässä tein,
+        //vaan lisäsin vain ne merkkijonona DOM:in innerhtml:llän avulla, mutta siksi en anna itselle täysiä pisteitä.
+
+        //lisätään jokaiselle li Nodelle addEventListener, samalla kun lisätään uusi li node
+        tag = document.querySelectorAll('li');
+        tag.forEach((element) => {
+          element.addEventListener('click', suoritaFunktio); //jolloin, kun jotain li nodea klikataan, niin lähtee funktiokutsu funktioon "suoritaFunktio"
+        });
+
+        document.getElementById('f').reset(); //tyhjennetään käyttäjän tekstikenttä
+      }
+
+      function tyhjääNappi() {
+        ulNode.innerHTML = ''; //yksinkertaisesti vain tyhjää koko ulNoden sisällön. Tämän voisi myös tehdä loopilla poistamalla jokainen li node yksitellen.
+      }
+
+      function suoritaFunktio() {
+        this.remove(); //poisttaa klickatun li noden
+      }
+    </script>
+  </body>
+</html>

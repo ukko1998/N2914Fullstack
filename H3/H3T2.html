@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 17.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+    <br />
+    <br />
+    <title>Tulosta tasoitukset</title>
+
+    <script>
+      // taulukko pelaajista ja niiden tasoitus luvuista, ei saa koskea!
+      var hcpdata = [
+        { name: 'Ari', hcp: 54 },
+        { name: 'Pasi', hcp: 5 },
+        { name: 'Seppo', hcp: 20 },
+      ];
+
+      //funktio, joka suoritetaan, kun painetaan nappia
+      function haeTiedot() {
+        //haetaan ulnoden sijainti HTML:ssä ja sijoitetaan se muuttujaan ulnode
+        let ulnode = document.getElementById('hcplist');
+
+        //jos ulnodessa on jo sisäisiä nodeja, niin ei suoriteta mitään
+        if (ulnode.hasChildNodes()) {
+        } else {
+          //mutta jos ei ole vielä, niin lisätään sinne for of loopin avulla uusi linode ja siihen nimi ja tasoitus luku
+          for (let tieto of hcpdata) {
+            //muuttujaan linode asetetaan <li></li> elementti
+            let linode = document.createElement('li');
+            //muuttujan litext sisään luodaan sisältöä eli esim. "Ari 54" merkkijono
+            let litext = document.createTextNode(`${tieto.name} ${tieto.hcp}`);
+            //sisennetään muuttujia, eli tässä esim muodostuu: <li>"Ari 54"</li>
+            linode.appendChild(litext);
+            //tämä sisennys tuo sen <li>"Ari 54"</li> näkyviin html:län puolelle.
+            ulnode.appendChild(linode);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!--nappia painettaessa lähtee funktiokutsu javascriptiin-->
+    <button onclick="haeTiedot()">Tulosta tasoitukset</button>
+    <ul id="hcplist"></ul>
+  </body>
+</html>

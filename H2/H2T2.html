@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 9.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+    <br />
+    <br />
+  </head>
+
+  <body>
+    <div id="selitys">
+      <br />1. rivillä muuttujalle nimeltään "myFunctionWithCallback"
+      määritellään nuolifunktio, <br />
+      jonka parametrit sisältää kolme muuttujaa<br /><br />
+      2. rivillä on nuolifunktion palautus, kun nuolifunktiota kutsutaan,<br />
+      joka tässä tapauksessa käyttää "callback" nimistä muuttujaa sulkeiden
+      edessä, <br />
+      jolloin palautus on uusi funktiokutsu, sulkujen sisällä on funktioon
+      vietävät muuttujat "p1" ja "P2".<br /><br />
+
+      5. rivillä muuttujalle nimeltään "myFunc" määritellään nuolifunktio,<br />
+      jonka parametrit sisältää 2 muuttujaa ja palautuksena on merkkijono,<br />
+      jonka sisään on sijoitettu nuolifunktion parametrit "p1" ja "p2".
+      <br /><br />
+
+      6. rivillä on funktiokutsu funktioon myFunctionWithCallback",<br />
+      lähetettävät parametrit ovat kaksi merkkijonoa ja muuttuja nimeltään
+      "myFunc"<br /><br />
+
+      7. rivillä tulostetaan muuttuja nimeltä "result" konsoliin<br /><br />
+
+      OHJELMAJÄRJESTYS:<br /><br />
+      Ohjelma hyppää suoraan riville 6, sillä kaikki sitä ennen ovat
+      funktioita,<br />
+      joita pitää kutsua. "result" muuttuja jää tässä vaiheessa vielä
+      tyhjäksi,<br />
+      sillä sen sisältö määräytyy kunhan funktiokutsun kautta saadaan jokin
+      määrittely sille.<br />
+      Rivillä 6 on siis funktiokutsu funktioon "myFunctionWithCallback",<br />
+      joka on rivillä 1. rivillä 1 olevaan funktioon tuodaan:<br />
+      p1:sen tilalle 'kinkulla' merkkijono<br />
+      p2:sen tilalle 'juustolla' merkkijono ja<br />
+      callback:in tilalle "myFunc" niminen muuttuja<br /><br />
+      1. rivin nuolifunktio suoritetaan heti parametrien muuttamisen jälkeen.<br />
+      Suorituksessa "callback(p1, p2)" muuttuu uusilla parametreillä
+      "myFunc('kinkulla', 'juustolla')" muotoiseksi,<br />
+      tämä on palautus, joten rivin 6 muuttuja "return" muuttuu täksi, eli: 6.
+      rivi: const result = myFunc('kinkulla', 'juustolla')<br />
+      Tämä on uusi funktiokutsu, joka löytyy riviltä 5.<br /><br />
+
+      rivillä 5. nuolifunktion parametreiksi tuodaan:<br />
+      p1:sen tilalle 'kinkulla' merkkijono<br />
+      p2:sen tilalle 'juustolla' merkkijono ja<br />
+      5. rivin nuolifunktio suoritetaan heti parametrien muuttamisen jälkeen.<br />
+      Suorituksessa "`Pitsa ${p1} ja ${p2}`" merkkijono muuttuu uusilla
+      parametreillä "`Pitsa kinkulla ja juustolla`" muotoiseksi.<br />
+      Tämä on palautus riville 6. muuttujan "result" sisällöksi.<br />
+      ohjelma siirtyy seuraavaksi riville 7., missä "result" muuttujan sisältö
+      tulostetaan konsoliin.
+    </div>
+
+    <script></script>
+  </body>
+</html>

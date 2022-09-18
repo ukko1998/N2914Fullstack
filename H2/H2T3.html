@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 9.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+    <br />
+    <br />
+  </head>
+
+  <body>
+    <div id="selitys">
+      rivillä 1. on nuolifunktio, jota kutsutaan nimellä "print",<br />
+      sen return on rivillä 2-5.<br /><br />
+      rivillä 7. on toinen nuolifunktio, jota kutsutaan nimellä "execute",<br />
+      sen return on rivillä 8.<br /><br />
+      rivillä 11. on konsoliin tulostettava merkkijono, eikä yhtään muuttujia,
+      joten tämä on ensimmäinen asia mikä konsoliin tulostuu<br /><br />
+      rivillä 12. on funktiokutsu funktioon nimeltä "execute", sinne viedään 3
+      parametria<br />
+      14.ja 15. sekä 17. ja 18. riveillä on vastaavanlaiset koodinpätkät, mutta
+      vähän eri parametreillä.<br /><br />
+      Viimeisellä rivillä, rivillä 20. on konsoliin tulostettava merkkijono
+      ilman muuttujia, joten se tulostuu ihan viimeiseksi<br /><br />
+
+      12., 15. ja 18. rivien funktiokutsut menee kaikki 7. rivin nuolifunktioon
+      "execute", missä:<br />
+      "str" muuttujan tilalle tulee 'Task#' merkkijono (# tillalla on eri numero
+      eri funktiokutsuissa)<br />
+      "taskTime" muuttujan tilalle tulee ##00 numero<br />
+      "callback" muuttujan tilalle tulee "print" niminen muuttuja<br /><br />
+      Näistä muodostuu "execute" nuolifunktion suorituksessa:<br />
+      print(Task#, ##00), joka on funktiokutsu rivillä 1. olevaan
+      nuolifunktioon<br /><br />
+
+      rivillä 1. muuttujien tilalle muuttuu:<br />
+      str -> Task#<br />
+      taskTime -> ##00<br />
+      Sitten suoritetaan kyseinen nuolifunktio, joka on setTimeout metodi,<br />
+      Goolasin sen ja selvisi, että setTimeout(functionRef, delay),<br />
+      eli metodille syötetään funktiokutsu (tai käytetään
+      anonyymi/nuolifunktiota) ja että kuinka paljon sitä funktion suorittamista
+      halutaan viivästyttää,<br />
+      ohjelma ei pysähdy odottamaan viivettä, vaan jatkaa seuraavaan
+      vaiheeseen.<br />
+
+      Joten näistä muodostuu:<br />
+      'Task1 finished!' merkkijono, jonka viive on 2000 (2 sekunttia)<br />
+      'Task2 finished!' merkkijono, jonka viive on 2000 (2 sekunttia) ja<br />
+      'Task3 finished!' merkkijono, jonka viive on 500 (0,5 sekunttia)<br /><br />
+
+      muut console.log() komennot tulee viiveettä, ne ovat järjestyksessä:<br />
+      "Task1 to execution..."<br />
+      "Task2 to execution..."<br />
+      "Task3 to execution..." ja<br />
+      "Last code line executed!"<br /><br />
+
+      Joten jos ymmärsin oikein miten viiveet toimii setTimeout metodilla, niin
+      konsoliin tulostuu:<br />
+      "Task1 to execution..."<br />
+      "Task2 to execution..."<br />
+      "Task3 to execution..."<br />
+      "Last code line executed!"<br />
+      "Task3 finished!"<br />
+      "Task1 finished!"<br />
+      "Task2 finished!"<br /><br />
+
+      Nyt testaan pitääkö tämä paikkaansa...<br />
+      sijoitin koodin jsbin:iin, niin samassa järjestyksessä koodi tuli kuin
+      veikkasinkin,<br />
+      vaikka alkussa kirjoitinkin, että 20. rivin koodi tulisi viimeiseski,<br />
+      mutta silloin en vielä ollut varma mitä setTimeout metodi tekee.
+    </div>
+
+    <script></script>
+  </body>
+</html>

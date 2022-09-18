@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 7.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+    <br />
+    <br />
+  </head>
+
+  <body>
+    <form id="f">
+      <!--käyttäjä syöttää numerot tekstikenttiin-->
+      Laske luvut yhteen<br />
+      <input type="text" id="n1" /><br />
+      <input type="text" id="n2" /><br />
+      <button type="button" onclick="tulostaSumma(f.n1.value, f.n2.value)">
+        <!--nappia painamalla lähetetään käyttäjän syöttämät numerot (merkkijonot) JavaScriptin funktioon "tulostaSumma"-->
+        Laske
+      </button>
+    </form>
+
+    <!--Tähän div-elementtin innerHTML osioon lisätään javascriptissä saatu tulos-->
+    <div id="result"></div>
+
+    <script>
+      function tulostaSumma(a, b) {
+        //ensimmäinen funktio, joka suoritetaan, kun nappia painetaan, joka vain kutsuu toista funktiota
+        //ja sieltä funktiosta saatu kokonaisluku viedään div-elementtiin
+        document.getElementById('result').innerHTML = laskeSumma(a, b);
+      }
+
+      function laskeSumma(a, b) {
+        //laskenta funktio, joka laskee a ja b muuttujat yhteen, palauttaen niiden summan
+        return parseInt(a) + parseInt(b); //palautetaan a ja b:n summa. ParseInt:llä muutetaan merkkijonot kokonaisluvuiksi
+      }
+    </script>
+  </body>
+</html>

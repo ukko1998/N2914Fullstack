@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 10.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+  </head>
+
+  <body>
+    <p>katso konsoli</p>
+
+    <script>
+      function person(name, age, phone, email) {
+        //person-olio, missä on 4kpl ominaisuuksia
+        this.ikä = age;
+        this.nimi = name;
+        this.puhelinNumero = phone;
+        this.email = email;
+
+        this.info = function () {
+          //metodi, jonka kutsumalla saa tiedot henkilöstä,
+          console.log(this.nimi);
+          console.log(this.ikä);
+          this.ikä += 1; //ikä kasvaa vuodella, joka kerta kun metodia kutsutaan
+          console.log(this.puhelinNumero);
+          console.log(this.email + '\n\n ');
+        };
+      }
+
+      let toni = new person('Toni', 20, '0401234567', 'toni@email.fi'); //tässä luodaan henkilöt
+      let pasi = new person('Pasi', 56, '0501234567', 'pasi@email.fi');
+      let eveliina = new person('Eveliina', 15, '0402345678', 'eppu@email.fi');
+
+      toni.info(); //kutsutaan metodia, eri henkilöillä ja useaan, kertaan, jotta iän kasvamisen huomaa
+      pasi.info();
+      eveliina.info();
+      toni.info();
+      pasi.info();
+      eveliina.info();
+      eveliina.info();
+      eveliina.info();
+    </script>
+  </body>
+</html>

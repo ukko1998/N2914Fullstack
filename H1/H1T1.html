@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 1.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+
+  </head>
+
+  <body>
+    <p id="tulos"></p>
+    <!--"p"-elementti, jonka id on nimeltään "tulos" -->
+
+    <script>
+      // JavaScript koodi alkaa <script> kohdasta ja päättyy </ script> kohtaan, joten mm. kommentitkin ovat JavaScriptillä
+      var v1 = 'Haloo';                             //ensimmäinen muuttuja nimeltään v1
+      var v2 = 'Maailma!';                          //toinen muuttuja nimeltään v2
+      var tulos = '<h1>' + v1 + ' ' + v2 + '</h1>'; //kolmas muuttuja nimeltään tulos ja johon yhdistetään eli "katenoidaan" merkkijono, v1 muuttuja, toinen merkkijono(välilyönti), v2 muuttuja ja kolmas merkkijono
+                                                    //näistä muodostuu tulos muuttujan sisään merkkijono "<h1>Haloo Maailma!</h1>"
+      console.log(tulos);                           //Näytetään tulos muuttujan merkkijono konsolissa
+
+      var otsikko = document.getElementById('tulos');   //neljäs muuttuja nimeltään otsikko, sen sisällöksi etsitään elementti jonka id on "tulos" html dokumentista
+      otsikko.innerHTML = tulos;                        //elementin sisällöksi muutetaan tulos muuttujan sisältö
+    </script>
+  </body>
+</html>

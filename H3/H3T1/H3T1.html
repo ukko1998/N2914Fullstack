@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 18.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+    <br />
+    <br />
+  </head>
+
+  <body>
+    <br />
+
+    <a href="#" onclick="kuvaTesla()">Tesla</a>
+    <span style="border-left: 2px solid; margin: 20px"></span>
+    <a href="#" onclick="kuvaYö()"> Yötön yö </a>
+    <span style="border-left: 2px solid; margin: 20px"></span>
+    <a href="#" onclick="kuvaPennut()">Misa & Miku pentuina</a>
+    <br />
+    <img src="tesla.jpg" alt="kuva" width="400px" />
+
+    <script>
+      let kuva = document.querySelector('img');
+
+      function kuvaTesla() {
+        kuva.src = 'tesla.jpg';
+      }
+
+      function kuvaYö() {
+        kuva.src = 'maisema.jpg';
+      }
+
+      function kuvaPennut() {
+        kuva.src = 'misa&miksu.jpg';
+      }
+    </script>
+  </body>
+</html>

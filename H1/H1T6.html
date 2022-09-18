@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 2.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+  </head>
+
+  <body>
+    <h1>JavaScript-taulukon läpikäynti</h1>
+
+    <h3>for- ja for...of-silmukoilla</h3>
+
+    <hr />
+
+    <p id="JS_sisältö"></p>
+
+    <script>
+      //muuttujat
+      let taulukko = [11, 22, 33, 44];
+      let summa = 0;
+      let lukumaara = 0;
+      let keskiarvo;
+      let tulosrivit = '';
+
+      for (const luku of taulukko) {
+        //for...of looppi, joka käy koko taulukon läpi ja joka alkiolla:
+        lukumaara += 1; //kasvatetaan muuttujaan "lukumäärä" arvoa yhdellä ja
+        summa += luku; //kasvatetaan muuttujan "summa" arvoa "luku" muuttujalla, joka on taulukon alkio
+      }
+
+      for (let i = 0; i < lukumaara; i++) {
+        //for looppi, jolla muodostetaan tulosrivit, eli lista näkyviin,
+        tulosrivit += 'taulukko[' + i + '] = ' + taulukko[i] + '<br>'; //missä näkyy taulukon indeksi ja indeksin alkio (eli indeksin arvo)
+      }
+
+      keskiarvo = summa / lukumaara; //keskiarvon kaava
+
+      var otsikko = document.getElementById('JS_sisältö'); //muuttuja nimeltään otsikko, sen sisällöksi etsitään elementti jonka id on "JS_sisältö" html dokumentista
+      otsikko.innerHTML = //sisältö (tekstiä ja muuttujat) näkyviin web sivulle
+        'Taulukon alkiot ovat <br><br>' +
+        tulosrivit +
+        '<br>Taulukon alkioiden<br>' +
+        '<br>lukumäärä: ' +
+        lukumaara +
+        '<br>summa: ' +
+        summa +
+        '<br>keskiarvo: ' +
+        keskiarvo;
+    </script>
+  </body>
+</html>

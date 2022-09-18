@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 9.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+  </head>
+
+  <body>
+    <!--Aloitusteksti-->
+    <p>OMG - Lady Gaga start singing!<br /><br /></p>
+
+    <script>
+      //muuttujien määrittely
+      let sisältöIlotulite = 'NICE - fireworks!<br>';
+      let ilotulitusMäärä = 5;
+      let sisältöLopetus = '<br>WOW - It was the best concert in my life...';
+      let viive = 0;
+
+      //nuolifunktio, jonne tuodaan kaksi parametria
+      const print = (teksti, viiveAika) => {
+        //setTimeout metodi, jolla viivästetään funktion suorittamista viiveAika (ms) verran
+        setTimeout(() => {
+          //viedään html:län puolelle parametriin "tekti" sijoitettu merkkijono, kuhan viive on kulunut
+          document.querySelector('p').innerHTML += teksti;
+        }, viiveAika);
+      };
+
+      for (let i = 0; i < ilotulitusMäärä; i++) {
+        //loopataan nuolifunktioon funktiokutsun avulla "sisältöIlotulitteen sisällä oleva merkkijono ja viive,
+        //joka loopin jokaisella kierroksella on 5s pidempi"
+        viive += 5000;
+        print(sisältöIlotulite, viive);
+      }
+
+      viive += 5000; //viimeinen teksti 5s myöhempään, kuin loopin viimeinen teksti
+      print(sisältöLopetus, viive);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 18.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+    <br />
+    <br />
+  </head>
+
+  <body>
+    <form id="numbers">
+      <span style="border-style: solid; border-width: 13px">T1</span>
+      <span style="border-style: solid; border-width: 13px">T2</span>
+      <span style="border-style: solid; border-width: 13.5px">T3</span>
+      <span style="border-style: solid; border-width: 13px">T4</span>
+      <br /><!--käyttäjä syöttää numerot tekstikenttiin-->
+      <input type="text" id="nro1" size="1" onblur="laskelmat()" />
+      <input type="text" id="nro2" size="1" onblur="laskelmat()" />
+      <input type="text" id="nro3" size="1" onblur="laskelmat()" />
+      <input type="text" id="nro4" size="1" onblur="laskelmat()" />
+
+      <br />
+    </form>
+    <p>Pistemäärä (summa):<b id="summa"></b></p>
+    <p>Arvosana:<b id="arvosana"></b></p>
+
+    <script>
+      //funktio joka suoritetaan, aina kun syöttökenttä (input) menettää aktiivisuuden
+      function laskelmat() {
+        //muuttujien määrittelyä
+        let summaSijainti = document.getElementById('summa');
+        let arvosanaSijainti = document.getElementById('arvosana');
+        let syötetytLuvut = document.querySelectorAll('input'); //querySelectorAll muodostaa taulukon kaikista inputeista
+        let luku = 0;
+        let summa = 0;
+        let arvosana = 0;
+
+        //for of loopilla käydään taulukon alkiot läpi
+        for (const value of syötetytLuvut) {
+          luku = value.value; //kopioidaan inputin arvo (value) muuttujaan "luku",...
+          luku = Number(luku); //...jotta se voidaan muuttaa numeroksi
+          //IF loopissa, jos luku on 0-6 välissä, niin luvun arvo lisätään "summa" muuttujaan
+          if (luku >= 0 && luku <= 6) {
+            summa += luku;
+            //muussa tapauksessa annetaan virheilmoitus käyttäjälle ja poistutaan functiosta
+          } else {
+            summaSijainti.innerHTML = 'VIRHE!';
+            arvosanaSijainti.innerHTML = 'VIRHE!';
+            return;
+          }
+        }
+
+        //for loopin jälkeen summa muuttujassa on kaikkien inputtien arvojen summa
+        summaSijainti.innerHTML = summa; //se sijoitetaan html:llään
+        //ja arvosanat määräytyy if lausekkeen avulla
+        if (summa >= 22) {
+          arvosanaSijainti.innerHTML = 5; //jos suurempi kuin 22, niin arvosana 5
+        } else if (summa >= 20) {
+          arvosanaSijainti.innerHTML = 4; //jos suurempi kuin 20, niin arvosana 4
+        } else if (summa >= 18) {
+          arvosanaSijainti.innerHTML = 3; //jne.
+        } else if (summa >= 16) {
+          arvosanaSijainti.innerHTML = 2;
+        } else if (summa >= 13) {
+          arvosanaSijainti.innerHTML = 1;
+        } else if (summa >= 0) {
+          arvosanaSijainti.innerHTML = 0;
+        }
+      }
+    </script>
+  </body>
+</html>

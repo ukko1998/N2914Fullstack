@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 3.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+  </head>
+
+  <body>
+    <h2>Ohjelma kertoo onko syöttämäsi vuosiluku karkausvuosi vai ei</h2>
+    <form id="karkausvuosi">
+      <!--käyttäjä syöttää numerot tekstikenttiin-->
+      Syötä vuosiluku<br />
+      <input type="text" id="vuosi" /><br />
+      <br />
+      <button type="button" onclick="nappiaPainettu()">
+        <!--nappia painamalla lähetetään käyttäjän syöttämät numerot (merkkijonot) JavaScriptiin-->
+        Tarkista
+      </button>
+    </form>
+
+    <p id="tulos"></p>
+
+    <script>
+      function nappiaPainettu() {
+        //ensimmäinen funktio, joka suoritetaan, kun nappia painetaan
+
+        var otsikko = document.getElementById('tulos'); //muuttuja nimeltään otsikko, sen sisällöksi etsitään elementti jonka id on "tulos" html dokumentista
+        var vuosiluku = karkausvuosi.vuosi.value; //haetaan käyttäjän syöttämä vuosiluku
+        var vuosiluku = Number(vuosiluku); //muutetaan käyttäjän syöte numeroksi
+
+        const karkausvuotisuus = onkoKarkausvuosi(vuosiluku); //Kutsutaan tehtävänannon funktiota, minne lähetetään vuosiluku ja mikä palauttaa true tai false
+
+        if (karkausvuotisuus == true) {
+          //käyttäjälle lähetettävä vastaus
+          otsikko.innerHTML = vuosiluku + '-> on karkausvuosi';
+        } else {
+          otsikko.innerHTML = vuosiluku + '-> ei ole karkausvuosi';
+        }
+      }
+
+      function onkoKarkausvuosi(vluku) {
+        //funktio joka laskee onko syötetty luku karkausvuosi vai ei
+        kVuosi = false; //oletuksena luku ei ole karkausvuosi
+
+        if (vluku % 400 === 0) {
+          //jos jakaantuu tasan 400:lla, niin on karkausvuosi
+          kVuosi = true;
+        } else {
+          if (vluku % 100 != 0 && vluku % 4 === 0) {
+            //jos ei jakaannu tasan 100:lla, mutta jakaantuu tasan 4:llä, niin on karkausvuosi
+            kVuosi = true;
+          } else {
+            //kaikissaa muissa tapauksissa ei ole karkausvuosi
+          }
+        }
+
+        return kVuosi; //palautetaan true tai false, sinne mistä funktiota kutsuttiin
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 1.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+  </head>
+
+  <body>
+    <p id="x">katso konsoli</p>
+
+    <script>
+      var taulukko = ['JavaScriptin', 'opiskelu', 'on', 'ihanaa!']; //muodostetaan taulukko, jonka sisään määritellään 4 merkkijonoa
+
+      var lause = ''; //muuttuja, joka määritellään merkkijonoksi
+
+      for (let sana of taulukko) {
+        //for...of-lause, joka asettaa merkkijonon "sana" tilalle taulukosta indexi järjestyksessä taulukon sisällön merkkijonoja
+        //niin monta kertaa, kuin taulukossa on merkkijonoja
+        lause += sana + ' '; //sana muuttujan sisältämä merkkijono ja välilyönti lisätään lause muuttujaan
+      } //Ainut mitä parannettavaa tällä tavalla tekemällä on, että viimeinen välilyönti on ylimääräinen, jota ei kaivata, mutta toisaalta sillä ei ole tässä väliä
+
+      console.log(lause); //Näytetään lause muuttujan merkkijono konsolissa
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 2.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+  </head>
+
+  <body>
+    <form id="numbers">
+      <!--käyttäjä syöttää numerot tekstikenttiin-->
+      1. numero<br />
+      <input type="text" id="nro1" /><br />
+      2. numero<br />
+      <input type="text" id="nro2" /><br />
+      3. numero<br />
+      <input type="text" id="nro3" /><br />
+      4. numero<br />
+      <input type="text" id="nro4" /><br />
+      <br />
+      <button type="button" onclick="nappiaPainettu()">
+        <!--nappia painamalla lähetetään käyttäjän syöttämät numerot (merkkijonot) JavaScriptiin-->
+        Tulosta numerolista
+      </button>
+    </form>
+    <p id="x">katso konsolista numerolista</p>
+
+    <script>
+      function nappiaPainettu() {
+        //ensimmäinen funktio, joka suoritetaan, kun nappia painetaan
+        var numeroLista = [
+          //muodostaa listan...
+          numbers.nro1.value, //...jokaisesta merkkijonosta, jotka käyttäjä on syöttänyt texti kenttiin,
+          numbers.nro2.value, //näitä voisi lisätä kuinka monta vaan, nyt näitä on 4kpl
+          numbers.nro3.value,
+          numbers.nro4.value,
+        ];
+        const numeroListaNumeroina = numeroLista.map(Number); //muutetaan merkkijonolista numerolistaksi, jolloin esim. teksi "moi" -> NaN (not a number) jne.
+        const parillisetLista = tulostaTaulukko(numeroListaNumeroina); //Kutsutaan tehtävänannon funktiota, minne lähetetään numerolista ja mikä palauttaa listan parillisista numeroista
+
+        console.log(numeroListaNumeroina); //tulostetaan numerolista...
+        console.log(parillisetLista); //...ja lista parillisista numeroista konsoliin
+      }
+
+      function tulostaTaulukko(numeroLista) {
+        //Tehtävänannon jonne tuodaan käyttäjän kirjaama lista numeroista, se lista on tämän funktion sisällä "numeroLista"
+        const numeroListaUusi = []; //funktion sisäinen lista, joka alkuun on tyhjä
+
+        for (let i = 0; i < numeroLista.length; i++) {
+          //for loop käy läpi koko numerolistan
+          if (numeroLista[i] % 2 === 0) {
+            //jos numerolistalla on luku, joka jakaantuu tasan luvulla 2 (eli on parillinen)...
+            numeroListaUusi.push(numeroLista[i]); //...niin lisätään se luku funktion sisäiseen listaan
+          }
+        }
+        return numeroListaUusi; //palautetaan funtion sisäinen lista, sinne mistä funktiota kutsuttiin
+      }
+    </script>
+  </body>
+</html>

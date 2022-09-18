@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 1.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+  </head>
+
+  <body>
+    <form id="numbers">
+      <!--käyttäjä syöttää numerot tekstikenttiin-->
+      1. numero<br />
+      <input type="text" id="nro1" /><br />
+      2. numero<br />
+      <input type="text" id="nro2" /><br />
+      3. numero<br />
+      <input type="text" id="nro3" /><br /><br />
+      <button
+        type="button"
+        onclick="tulostanumero(numbers.nro1.value, numbers.nro2.value, numbers.nro3.value)"
+      >
+        <!--nappia painamalla lähetetään käyttäjän syöttämät numerot (merkkijonot) JavaScriptiin-->
+        Tulosta suurin numero
+      </button>
+    </form>
+    <p id="x">katso konsolista suurin numero</p>
+
+    <script>
+      function tulostanumero(a, b, c) {
+        //käyttäjältä saadut numerot (merkkijonot) ovat funktion kautta muuttujina a, b ja c
+        var a = Number(a);
+        var b = Number(b); //muutetaan merkkijonot numeroiksi
+        var c = Number(c);
+
+        console.log(Math.max(a, b, c)); //tulostetaan konsoliin suurin numero muuttujista
+      }
+    </script>
+  </body>
+</html>

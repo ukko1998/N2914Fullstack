@@ -26,9 +26,10 @@ async function renderHouses() {
     header.className = 'header';
     header.innerHTML = house.address;
 
+    let numberstr = new Intl.NumberFormat('fi-FI').format(house.price);
     let teksti = document.createElement('p');
     teksti.className = 'text';
-    teksti.innerHTML = house.text;
+    teksti.innerHTML = `${house.size} m2 <br>${house.text} <br> ${numberstr} euroa`;
     /*
            Ohjelmoi tähän toiminnallisuus, jossa luodaan p-elementit
            myös talon koon, tekstikuvauksen ja hinnan näyttämiselle
@@ -39,10 +40,7 @@ async function renderHouses() {
 
     housecontainer.appendChild(image);
     housecontainer.appendChild(header);
-
-    /* Ohjelmoi tähän toiminnallisuus, jossa liität edellä
-                  luomasi p-elementit myös housecontaineriin
-              */
+    housecontainer.appendChild(teksti);
 
     housediv.appendChild(housecontainer);
   });

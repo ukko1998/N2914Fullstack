@@ -1,6 +1,8 @@
 async function getHouses() {
+  //async funktio, joka pyrkii hakemaan data (res) json tiedostosta
   let url = 'talotiedot.json';
   try {
+    //yrittää hakea tiedostoa ja siirtää sen sisältämän datan muuttujaan "res"
     let res = await fetch(url);
     return await res.json();
   } catch (error) {
@@ -9,14 +11,16 @@ async function getHouses() {
 }
 
 async function renderHouses() {
-  let houses = await getHouses();
-  console.log(houses);
+  let houses = await getHouses(); //kutsutaan async funktiota
+  console.log(houses); //vian etsinnän helpommatiseksi tässä vaiheessa tulostetaan saatu json tiedoston sisältö konsoliin
 
-  let housediv = document.getElementById('houses');
+  let housediv = document.getElementById('houses'); //houses divin polku
 
+  //json data on taulukko, joten käytetään foreach:ia jokaisen alkion läpi käymiseksi, alkion sisältöihin viitataan objektin tavoin.
   houses.forEach((house) => {
-    housecontainer = document.createElement('div');
-    housecontainer.className = 'houseContainer';
+    //datan yksi alkio on muuttujassa "house"
+    housecontainer = document.createElement('div'); //DOMia muokkaamalla lisätään elementtejä
+    housecontainer.className = 'houseContainer'; //ja elementteihin ominaisuuksia (tässä: luokka)
 
     let image = document.createElement('img');
     image.src = house.image;
@@ -26,17 +30,10 @@ async function renderHouses() {
     header.className = 'header';
     header.innerHTML = house.address;
 
-    let numberstr = new Intl.NumberFormat('fi-FI').format(house.price);
+    let numberstr = new Intl.NumberFormat('fi-FI').format(house.price); //käytetään lukuun suomalaista tapaa numeron ulkoasuun
     let teksti = document.createElement('p');
     teksti.className = 'text';
-    teksti.innerHTML = `${house.size} m2 <br>${house.text} <br> ${numberstr} euroa`;
-    /*
-           Ohjelmoi tähän toiminnallisuus, jossa luodaan p-elementit
-           myös talon koon, tekstikuvauksen ja hinnan näyttämiselle
-           Hinnan voit muotoilla tuhaterottimia käyttävään suomalaiseen
-           muotoon esim:
-        let numberstr = new Intl.NumberFormat('fi-FI').format(house.price);
-      */
+    teksti.innerHTML = `${house.size} m2 <br><br>${house.text} <br><br> ${numberstr} euroa`;
 
     housecontainer.appendChild(image);
     housecontainer.appendChild(header);
@@ -46,4 +43,4 @@ async function renderHouses() {
   });
 }
 
-renderHouses(); //ohjelman aloittaminen
+renderHouses(); //ohjelman alkaaa tästä fuktiokutsusta

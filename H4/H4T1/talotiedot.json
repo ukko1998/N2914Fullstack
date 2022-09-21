@@ -1,5 +1,4 @@
-{
-  "talotiedot": [
+[
     {
       "image": "talo1.jpg",
       "address": "Lönnrotinkatu 3, 00120 , Helsinki",
@@ -36,4 +35,4 @@
       "price": 1200000
     }
   ]
-}
+

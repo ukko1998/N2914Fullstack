@@ -52,8 +52,8 @@ async function getHouses() {
 }
 
 async function renderHouses() {
-  //let houses = await getHouses(); //kutsutaan async funktiota
-  console.log(talot); //vian etsinnän helpommatiseksi tässä vaiheessa tulostetaan saatu json tiedoston sisältö konsoliin
+  let houses = await getHouses(); //kutsutaan async funktiota
+  console.log(houses); //vian etsinnän helpommatiseksi tässä vaiheessa tulostetaan saatu json tiedoston sisältö konsoliin
 
   let housediv = document.getElementById('houses'); //houses divin polku
 
@@ -65,7 +65,7 @@ async function renderHouses() {
   housediv.innerHTML = '';
 
   //json data on taulukko, joten käytetään foreach:ia jokaisen alkion läpi käymiseksi, alkion sisältöihin viitataan objektin tavoin.
-  talot.forEach((house) => {
+  houses.forEach((house) => {
     //datan yksi alkio on muuttujassa "house"
 
     //jos jompikumpi ehto täyttyy, niin sen tietoja ei näytetä web selaimessa

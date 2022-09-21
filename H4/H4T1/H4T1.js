@@ -14,7 +14,7 @@ async function renderHouses() {
 
   let housediv = document.getElementById('houses');
 
-  houses.forEach(house => {
+  houses.forEach((house) => {
     housecontainer = document.createElement('div');
     housecontainer.className = 'houseContainer';
 
@@ -26,6 +26,9 @@ async function renderHouses() {
     header.className = 'header';
     header.innerHTML = house.address;
 
+    let teksti = document.createElement('p');
+    teksti.className = 'text';
+    teksti.innerHTML = house.text;
     /*
            Ohjelmoi tähän toiminnallisuus, jossa luodaan p-elementit
            myös talon koon, tekstikuvauksen ja hinnan näyttämiselle

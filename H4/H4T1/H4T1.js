@@ -14,7 +14,7 @@ async function renderHouses() {
 
   let housediv = document.getElementById('houses');
 
-  houses.forEach((house) => {
+  houses.forEach(house => {
     housecontainer = document.createElement('div');
     housecontainer.className = 'houseContainer';
 

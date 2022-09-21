@@ -30,14 +30,22 @@ async function renderHouses() {
     header.className = 'header';
     header.innerHTML = house.address;
 
-    let numberstr = new Intl.NumberFormat('fi-FI').format(house.price); //käytetään lukuun suomalaista tapaa numeron ulkoasuun
+    let pintaAla = document.createElement('p');
+    pintaAla.innerHTML = `${house.size} m2`;
+
     let teksti = document.createElement('p');
     teksti.className = 'text';
-    teksti.innerHTML = `${house.size} m2 <br><br>${house.text} <br><br> ${numberstr} euroa`;
+    teksti.innerHTML = house.text;
+
+    let numberstr = new Intl.NumberFormat('fi-FI').format(house.price); //käytetään lukuun suomalaista tapaa numeron ulkoasuun
+    let hinta = document.createElement('p');
+    hinta.innerHTML = `${numberstr} euroa`;
 
     housecontainer.appendChild(image);
     housecontainer.appendChild(header);
+    housecontainer.appendChild(pintaAla);
     housecontainer.appendChild(teksti);
+    housecontainer.appendChild(hinta);
 
     housediv.appendChild(housecontainer);
   });

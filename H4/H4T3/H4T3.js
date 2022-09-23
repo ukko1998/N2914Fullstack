@@ -27,6 +27,7 @@ let ul, li, TekstiSyöte, lista;
 
 TekstiSyöte = document.getElementById('hakuInput');
 lista = await jsonLista();
+console.log(lista); //vian etsinnän helpommatiseksi tässä vaiheessa tulostetaan saatu json tiedoston sisältö konsoliin
 
 function haeKirjainta(nimi) {
   nimi = nimi.toUpperCase();

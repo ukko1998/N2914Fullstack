@@ -26,12 +26,13 @@ async function jsonLista() {
 let ul, li, TekstiSyöte, lista;
 
 TekstiSyöte = document.getElementById('hakuInput');
-lista = await jsonLista();
-console.log(lista); //vian etsinnän helpommatiseksi tässä vaiheessa tulostetaan saatu json tiedoston sisältö konsoliin
 
-function haeKirjainta(nimi) {
+async function haeKirjainta(nimi) {
   nimi = nimi.toUpperCase();
   ul = document.getElementById('myUL');
+
+  lista = await jsonLista(); //haetaan listan tiedot
+  console.log(lista); //vian etsinnän helpommatiseksi tässä vaiheessa tulostetaan saatu json tiedoston sisältö konsoliin
 
   ul.innerHTML = ''; //tyhjennetään lista, kun haetaan uudet nimet
 

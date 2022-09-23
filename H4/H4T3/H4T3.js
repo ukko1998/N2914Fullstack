@@ -26,7 +26,7 @@ async function jsonLista() {
 let ul, li, TekstiSyöte, lista;
 
 TekstiSyöte = document.getElementById('hakuInput');
-lista = jsonLista();
+lista = await jsonLista();
 
 function haeKirjainta(nimi) {
   nimi = nimi.toUpperCase();

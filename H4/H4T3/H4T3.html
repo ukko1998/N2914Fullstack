@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--päivämäärä: 21.9.2022-->
+    <meta charset="UTF-8" />
+    <!--jotta näkyy ä ja ö kirjaimet oikein-->
+
+    <!--linkki päiväkirjaan-->
+    <h3><a href="https://ukko1998.github.io/N2914Fullstack/">Takaisin</a></h3>
+    <br />
+    <br />
+    <!--CSS tyylit ulkoisesta tiedostosta-->
+    <link rel="stylesheet" href="H4T3_tyylit.css" />
+  </head>
+
+  <body>
+    <div id="divElementti">
+      <input
+        type="text"
+        id="hakuInput"
+        onkeyup="haeKirjainta(this.value)"
+        placeholder="Hae nimiä..."
+      />
+      <ul id="myUL" class="card-list"></ul>
+    </div>
+    <p id="pNode">
+      Klickkaa hakukentästä ulos selataksesi listaa nuolinäppäimillä
+    </p>
+
+    <!--JavaScript on erillisessä tiedostossa-->
+    <script src="H4T3.js"></script>
+  </body>
+</html>

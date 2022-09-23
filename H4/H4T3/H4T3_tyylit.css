@@ -1,0 +1,45 @@
+#hakuInput {
+  width: 200px; /* hakukentän koko */
+  font-size: 16px; /* Fontin koko */
+  padding: 12px 20px 12px 20px; /* Add some padding */
+  border: 1px solid rgb(0, 0, 0); /* reunaviiva */
+  margin-bottom: 12px;
+}
+#divElementti {
+  width: 240px; /* hakukentän koko */
+  background-color: yellow;
+  font-size: 16px; /* Fontin koko */
+  padding: 12px 20px 12px 20px; /* Add some padding */
+  border: 1px solid rgb(0, 0, 0); /* reunaviiva */
+  margin-bottom: 12px;
+}
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  /*border: 1px solid #ddd;  Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  /*background-color: #f6f6f6; Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Fontin koko */
+  color: black; /* tekstinn väri */
+  display: block; /* levittää elementistä niin ison kun vain mahtuu */
+}
+
+#myUL li a:hover {
+  background-color: #eee; /* lisää "hover" efectin kursorin mennessä hakukohteen päälle */
+}
+
+.highlight {
+  background-color: #eee; /* lisää "highlight" efectin liikkuessa nuolinäppäimillä ylös tai alas */
+}
+
+#pNode {
+  font-size: 13px; /* Fontin koko */
+  color: black; /* tekstinn väri */
+}

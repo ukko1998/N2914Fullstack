@@ -16,3 +16,6 @@ console.log(
     vuosi
   )}.`
 );
+
+//node h5t2.js
+//> Tommi Martikainen asuu paikkakunnalla Tampere ja on syntynyt 20.04.1998.

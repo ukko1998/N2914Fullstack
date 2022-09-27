@@ -1,4 +1,6 @@
 // H5T1.js
+// päivämäärä: 25.9.2022
+
 
 const nimi = 'Tommi Martikainen';
 console.log(nimi);

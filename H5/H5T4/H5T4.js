@@ -1,4 +1,4 @@
-//päivämäärä: 28.9.2022
+//päivämäärä: 29.9.2022
 
 let txtTiedostonNimi = 'H5T4pyyntimäärä.txt'; //syötä tähän .txt tiedoston nimi, jonne pyyntimäärä tallentuu
 
